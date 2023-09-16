@@ -16,6 +16,10 @@ public class Employee {
     public Employee() {
     }
 
+    public static EmployeeBuilder getBuilder() {
+        return new EmployeeBuilder();
+    }
+
     public String getName() {
         return name;
     }
@@ -64,11 +68,45 @@ public class Employee {
         this.carNumber = carNumber;
     }
 
-    public static EmployeeBuilder getBuilder() {
-        return new EmployeeBuilder();
-    }
-
     public static class EmployeeBuilder {
-        // Write your code here!
+        private final Employee employee;
+
+        public EmployeeBuilder() {
+            this.employee = new Employee();
+        }
+
+        public EmployeeBuilder setName(String name) {
+            employee.setName(name);
+            return this;
+        }
+
+        public EmployeeBuilder setLastName(String lastName) {
+            employee.setLastName(lastName);
+            return this;
+        }
+
+        public EmployeeBuilder setPosition(String position) {
+            employee.setPosition(position);
+            return this;
+        }
+
+        public EmployeeBuilder setPhone(String phone) {
+            employee.setPhone(phone);
+            return this;
+        }
+
+        public EmployeeBuilder setEmail(String email) {
+            employee.setEmail(email);
+            return this;
+        }
+
+        public EmployeeBuilder setCarNumber(String carNumber) {
+            employee.setCarNumber(carNumber);
+            return this;
+        }
+
+        public Employee build() {
+            return employee;
+        }
     }
 }
