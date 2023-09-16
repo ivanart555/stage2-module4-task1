@@ -19,7 +19,7 @@ public class H2ConnectionFactory implements ConnectionFactory {
             properties.load(
                     H2ConnectionFactory.class.getClassLoader().getResourceAsStream("h2database.properties"));
 
-            return DriverManager.getConnection(properties.getProperty("postgres.url"), properties.getProperty("postgres.name"), properties.getProperty("postgres.password"));
+            return DriverManager.getConnection(properties.getProperty("db_url"), properties.getProperty("user"), properties.getProperty("password"));
         } catch (IOException | SQLException e) {
             LOGGER.warning("Failed to get connection to database!");
         }
